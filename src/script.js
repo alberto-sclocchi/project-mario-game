@@ -15,21 +15,22 @@ window.onload = function () {
         "ArrowRight",
         " ",
         "a",
-        "d"
+        "d",
+        "ArrowUp"
       ];
   
       if (possibleKeystrokes.includes(key)) {
         event.preventDefault();
-        switch(event.key){
-          case " ":
+        switch(key){
+          case " " || "ArrowUp":
             game.mario.jump();
             break;
           case "ArrowLeft" || "a":
-            game.mario.directionX = -1.5;
+            game.mario.directionX = -2;
             game.mario.element.classList.add("flipped");
             break;
           case "ArrowRight" || "d":
-            game.mario.directionX = 1.5;
+            game.mario.directionX = 2;
             game.mario.element.classList.remove("flipped");
             break;
         }

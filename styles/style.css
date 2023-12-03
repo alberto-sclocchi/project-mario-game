@@ -26,6 +26,7 @@
     padding: 20px 0px;
     justify-content: center;
     background-color: #5D94FB;
+    overflow: hidden;
   }
   
   #game-screen {
@@ -38,6 +39,13 @@
     background-size: cover;
     left: 25%;
     margin-top: 100px;;
+    animation: slide 4s linear infinite;
+  }
+  
+  @keyframes slide {
+    0% {
+      background-position: 960px 0;
+    }
   }
   
   #game-end {

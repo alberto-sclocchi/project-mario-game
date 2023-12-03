@@ -8,6 +8,7 @@ class Mario{
         this.element = document.createElement ("img");
         this.directionX = 0;
         this.isMarioJumping = false;
+        this.hearts = 3;
 
         this.element.src = imgSrc; 
         this.element.style.position = "absolute";
@@ -46,6 +47,7 @@ class Mario{
 
             let jumpInterval = setInterval(()=>{
                 if (startPos < endPos){
+                    this.element.src = "./images/mario-no-shadow.gif";
                     startPos += speed;
                     this.element.style.bottom = `${startPos}px`;
                 } else{
@@ -67,25 +69,24 @@ class Mario{
                 this.element.style.bottom = `${startPos}px`;
             } else {
                 clearInterval(fallInterval);
+                this.element.src = "./images/mario.gif";
                 this.isMarioJumping = false;
             }
         }, 20);
     }
 
     didCollide(mushroom){
-        const marioRect = this.element.getBoundingClientRect();
-        const mushroomRect = mushroom.element.getBoundingClientRect();
-    
-        if(marioRect.left < mushroomRect.right && 
-            marioRect.right > mushroomRect.left &&
-            marioRect.top < mushroomRect.bottom &&
-            marioRect.bottom > mushroomRect.top
+        const playerRect = this.element.getBoundingClientRect();
+        const obstacleRect = mushroom.element.getBoundingClientRect();
+
+        if(playerRect.left + 60 < obstacleRect.right && 
+            playerRect.right - 60 > obstacleRect.left &&
+            playerRect.top < obstacleRect.bottom &&
+            playerRect.bottom > obstacleRect.top
         ){
             return true;
-        } 
-        else {
+        } else {
             return false; 
         }
     }
-    
 }

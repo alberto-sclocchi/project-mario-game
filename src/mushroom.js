@@ -1,10 +1,12 @@
 class Mushroom {
-    constructor(gameScreen){
+    constructor(gameScreen, speed, level){
         this.gameScreen = gameScreen;
         this.bottom = 62;
         this.width = 40;
         this.height = 40;
         this.right = 0;
+        this.speed = speed;
+        this.level = level;
         this.element = document.createElement("img");
         
         this.element.src = "./images/mushroom.png";
@@ -22,7 +24,8 @@ class Mushroom {
     }
 
     move(){
-        this.right += 3;
+
+        this.right += this.speed;
 
         this.updatePosition();
     }

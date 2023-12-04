@@ -79,10 +79,10 @@ class Mario{
         const playerRect = this.element.getBoundingClientRect();
         const obstacleRect = mushroom.element.getBoundingClientRect();
 
-        if(playerRect.left + 60 < obstacleRect.right && 
+        if(playerRect.left + 40 < obstacleRect.right && 
             playerRect.right - 60 > obstacleRect.left &&
-            playerRect.top < obstacleRect.bottom &&
-            playerRect.bottom > obstacleRect.top
+            playerRect.top + 40 < obstacleRect.bottom &&
+            playerRect.bottom - 60 > obstacleRect.top
         ){
             return true;
         } else {

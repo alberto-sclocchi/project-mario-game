@@ -7,7 +7,9 @@ class Game{
         this.height = 500;
         this.width = 700;
         this.obstacles = [];
+        this.level = 0;
         this.score = 0;
+        this.speed = 3;
         this.hearts = 3;
         
         this.gameIsOver = false;
@@ -39,26 +41,33 @@ class Game{
         this.mario.move();
 
         if (Math.random() > 0.98 && this.obstacles.length < 1){
-            this.obstacles.push(new Mushroom(this.gameScreen));
+            this.obstacles.push(new Mushroom(this.gameScreen, this.speed, this.level));
         }
 
         for (let i = 0; i < this.obstacles.length; i++){
             const mushroom = this.obstacles[i];
-            
             mushroom.move();
 
-            if(this.mario.didCollide(mushroom) && !this.mario.isMarioJumping){
+            if(this.mario.didCollide(mushroom)){
                 mushroom.element.style.display = "none";
                 this.obstacles.splice(i,1);
                 this.hearts--;
-                console.log("hello")
+                console.log("hit")
                 i--;
             } else if (mushroom.right > this.width){
                 this.score++;
-                mushroom.element.style.display = "none";
-                this.obstacles.splice(i,1);
                 document.querySelector("#score").innerHTML = this.score;
-                console.log("hello hi");
+                this.obstacles.splice(i,1);
+                mushroom.element.style.display = "none";
+
+                if (this.score % 5 === 0){
+                    this.level++;
+                    this.speed ++; 
+                    document.querySelector("#level").innerHTML = this.level;
+                    console.log("level", this.level)
+                    console.log("speed", mushroom.speed)
+                }
+
                 i--;
             }
         }

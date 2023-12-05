@@ -24,7 +24,6 @@ class Mushroom {
     }
 
     move(){
-
         this.right += this.speed;
 
         this.updatePosition();

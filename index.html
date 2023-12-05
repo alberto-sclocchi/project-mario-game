@@ -15,16 +15,25 @@
   
     <div id="game-container">
         <section id="stats">
-            <p>
+            <p id="hearts-par">
+                <img src="./images/heart.png" alt="red-heart" class="heart" id="heart1">
+                <img src="./images/heart.png" alt="red-heart" class="heart" id="heart2">
+                <img src="./images/heart.png" alt="red-heart" class="heart" id="heart3">
+            </p>
+            <p id="score-par" class="stats-par">
                 <span>Score</span>
                 <span id="score">0</span>
             </p>
-            <p>
+            <p id="level-par" class="stats-par">
                 <span>Level</span>
                 <span id="level">0</span>
             </p>
         </section>
         <div id="game-screen"></div>
+        <audio id="background-music" src = "./images/background-audio.mp3" loop></audio>
+        <audio id="jump-sound" src = "./images/jump-audio.mp3"></audio>
+        <audio id="level-up-sound" src = "./images/level-up-audio.mp3"></audio>
+        <audio id="dead-sound" src = "./images/mario-dead-audio.mp3"></audio>
     </div>
   
     <div id="game-end">

@@ -4,6 +4,9 @@ class Game{
         this.gameScreen = document.querySelector("#game-screen");
         this.gameContainer = document.querySelector("#game-container")
         this.gameEndScreen = document.querySelector("#game-end");
+        this.levelUpSound = document.querySelector("#level-up-sound");
+        this.redHearts = document.getElementsByClassName("red-heart");
+        this.deadSound = document.querySelector("#dead-sound")
         this.height = 500;
         this.width = 700;
         this.obstacles = [];
@@ -52,30 +55,46 @@ class Game{
                 mushroom.element.style.display = "none";
                 this.obstacles.splice(i,1);
                 this.hearts--;
-                console.log("hit")
+                console.log("hit");
+
+                //document.getElementById(`heart${this.heart}`).style.display = none;
+                
                 i--;
             } else if (mushroom.right > this.width){
+                // console.log("level out", this.level)
+                // console.log("speed out", mushroom.speed)
                 this.score++;
-                document.querySelector("#score").innerHTML = this.score;
-                this.obstacles.splice(i,1);
-                mushroom.element.style.display = "none";
 
-                if (this.score % 5 === 0){
+                if (this.score % 2 === 0){
                     this.level++;
+                    this.levelUpSound.play();
                     this.speed ++; 
                     document.querySelector("#level").innerHTML = this.level;
                     console.log("level", this.level)
                     console.log("speed", mushroom.speed)
                 }
 
+                document.querySelector("#score").innerHTML = this.score;
+                this.obstacles.splice(i,1);
+                mushroom.element.style.display = "none";
                 i--;
             }
         }
 
         if(this.hearts === 0){
             console.log("End Game");
+            // this.gameScreen.style.animation = "none";
             this.endGame();
+            this.deadSound.play();
         }
     
     }
+
+    // endGame(){
+    //     this.mario.element.remove();
+    //     this.obstacles.forEach(mushroom => mushroom.element.remove());
+    //     this.gameIsOver = true;
+    //     this.gameContainer.style.display = "none";
+    //     this.gameEndScreen.style.display = "block";
+    // }
 }

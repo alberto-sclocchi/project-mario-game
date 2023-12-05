@@ -1,3 +1,4 @@
+  
   body {
     padding: 0;
     margin: 0 auto;
@@ -58,21 +59,34 @@
     align-items: center;
   }
 
-  #stats p{
+  .stats-par{
     margin-right: 50px;
     display: flex;
     flex-direction: column;
     position: relative;
     top: 55px;
     font-size: 20px;
-    font-weight: 900;
-    border: 4px solid white;
-    background-color: #5D94FB;
+    font-weight: 900; 
     border-radius: 10px;
     padding: 10px;
+  }
+
+  #score-par{
+    position: relative;
+    left: 160px;
+    border: 4px solid white;
+    background-color: #5D94FB;
     color: white;
   }
 
+  #level-par{
+    position: relative;
+    left: 160px;
+    border: 4px solid #5D94FB;
+    background-color: white;
+    color: #5D94FB;
+  }
+  
   #game-end {
     display: none;
   }
@@ -93,3 +107,15 @@
     transform: scaleX(-1);
     transition: all 0s;
   }
+
+  .heart{
+    width: 50px;
+    position: relative;
+    top: 60px;
+    right: 120px;
+  }
+
+  #hearts-par{
+    display: flex;
+  }
+  

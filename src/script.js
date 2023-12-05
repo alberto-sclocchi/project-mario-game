@@ -2,10 +2,14 @@ window.onload = function () {
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
   const instructionButton = document.getElementById("instruction-button");
+  const backgroundMusic = document.getElementById("background-music");
+  const jumpSound = document.querySelector("#jump-sound");
+
   let game = new Game(); 
 
     startButton.addEventListener("click", ()=>{
         game.start();
+        // backgroundMusic.play();
     });
         
     window.addEventListener("keydown", (event)=>{
@@ -24,6 +28,7 @@ window.onload = function () {
         switch(key){
           case " " || "ArrowUp":
             game.mario.jump();
+            jumpSound.play();
             break;
           case "ArrowLeft" || "a":
             game.mario.directionX = -2;

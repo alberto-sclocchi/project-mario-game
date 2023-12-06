@@ -16,14 +16,15 @@ class Game{
         this.score = 0;
         this.speed = 3;
         this.hearts = 3;
+        this.finalLevel = 0;
+        this.finalScore = 0;
         
-        this.gameIsOver = false;
+        this.isGameOver = false;
         this.mario = new Mario(this.gameScreen, 40, 15, 175, 175, "./images/mario.gif")
     }
 
     start(){
         console.log("i am in the start")
-        this.gameContainer.style.display = "block";
         this.gameScreen.style.height = `${this.height}px`;
         this.gameScreen.style.width = `${this.width}px`;
 
@@ -86,9 +87,7 @@ class Game{
             console.log("End Game");
             // this.gameScreen.style.animation = "none";
             this.endGame();
-            // this.deadSound.play();
         }
-    
     }
 
     endGame(){
@@ -96,9 +95,16 @@ class Game{
         this.backgroundMusic.pause();
         this.levelUpSound.pause();
         this.jumpSound.pause();
+        this.deadSound.play();
         this.obstacles.forEach(mushroom => mushroom.element.remove());
-        this.gameIsOver = true;
+        this.isGameOver = true;
         this.gameContainer.style.display = "none";
         this.gameEndScreen.style.display = "block";
+
+        console.log(this.score);
+        console.log(this.level);
+
+        document.querySelector("#final-score").innerHTML = this.score;
+        document.querySelector("#final-level").innerHTML = this.level;
     }
 }

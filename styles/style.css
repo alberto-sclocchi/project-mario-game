@@ -6,7 +6,7 @@
     font-family: Tahoma;
   }
   
-  #game-intro {
+  #game-intro{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -89,6 +89,7 @@
   
   #game-end {
     display: none;
+    background-color: aqua;
   }
   
   body button {
@@ -119,3 +120,24 @@
     display: flex;
   }
   
+  #game-end img{
+    width: 300px;
+    margin: 70px
+  }
+
+  #game-end > span{
+    font-weight: 900;
+    font-size: 30px;
+    margin: 100px;
+    padding: 30px;
+    border: 4px dashed white;
+    background-color: #5D94FB;
+    color: white;
+  }
+
+  #game-summary{
+    margin: 70px 0px 50px 0px;;
+    color: #5D94FB;
+    font-size: 30px;
+    font-weight: 900;
+  }

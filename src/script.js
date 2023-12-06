@@ -2,16 +2,26 @@ window.onload = function () {
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
   const instructionButton = document.getElementById("instruction-button");
-  const backgroundMusic = document.getElementById("background-music");
-  const jumpSound = document.querySelector("#jump-sound");
+  const mainPageButton = document.getElementById("main-page-button");
 
-  let game = new Game(); 
+
+  let game;
 
     startButton.addEventListener("click", ()=>{
-        game.start();
-        // backgroundMusic.play();
+      startGame();
     });
-        
+    
+    restartButton.addEventListener("click", ()=>{
+      console.log("I am in the restart Btn");
+      startGame();
+    });
+    
+    function startGame(){
+      game = new Game();
+      game.start();
+      game.backgroundMusic.play();
+    }
+
     window.addEventListener("keydown", (event)=>{
     const key = event.key;
       const possibleKeystrokes = [
@@ -26,15 +36,18 @@ window.onload = function () {
       if (possibleKeystrokes.includes(key)) {
         event.preventDefault();
         switch(key){
-          case " " || "ArrowUp":
+          case " ":
+          case "ArrowUp":
             game.mario.jump();
-            jumpSound.play();
+            game.jumpSound.play();
             break;
-          case "ArrowLeft" || "a":
+          case "ArrowLeft":
+          case "a":
             game.mario.directionX = -2;
             game.mario.element.classList.add("flipped");
             break;
-          case "ArrowRight" || "d":
+          case "ArrowRight":
+          case "d":
             game.mario.directionX = 2;
             game.mario.element.classList.remove("flipped");
             break;

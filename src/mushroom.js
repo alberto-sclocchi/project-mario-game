@@ -28,4 +28,8 @@ class Mushroom {
 
         this.updatePosition();
     }
+
+    updateSpeed (newSpeed){
+        this.speed = newSpeed;
+    }
 }

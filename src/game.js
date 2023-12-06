@@ -5,8 +5,10 @@ class Game{
         this.gameContainer = document.querySelector("#game-container")
         this.gameEndScreen = document.querySelector("#game-end");
         this.levelUpSound = document.querySelector("#level-up-sound");
-        this.redHearts = document.getElementsByClassName("red-heart");
-        this.deadSound = document.querySelector("#dead-sound")
+        this.backgroundMusic = document.getElementById("background-music");
+        this.redHearts = document.getElementsByClassName("heart");
+        this.deadSound = document.querySelector("#dead-sound");
+        this.jumpSound = document.querySelector("#jump-sound");
         this.height = 500;
         this.width = 700;
         this.obstacles = [];
@@ -20,6 +22,8 @@ class Game{
     }
 
     start(){
+        console.log("i am in the start")
+        this.gameContainer.style.display = "block";
         this.gameScreen.style.height = `${this.height}px`;
         this.gameScreen.style.width = `${this.width}px`;
 
@@ -56,19 +60,16 @@ class Game{
                 this.obstacles.splice(i,1);
                 this.hearts--;
                 console.log("hit");
-
-                //document.getElementById(`heart${this.heart}`).style.display = none;
-                
+                [...this.redHearts][this.hearts].style.display = "none";
                 i--;
             } else if (mushroom.right > this.width){
-                // console.log("level out", this.level)
-                // console.log("speed out", mushroom.speed)
                 this.score++;
 
-                if (this.score % 2 === 0){
+                if (this.score % 5 === 0){
                     this.level++;
                     this.levelUpSound.play();
-                    this.speed ++; 
+                    this.speed ++;
+                    mushroom.updateSpeed(this.speed);
                     document.querySelector("#level").innerHTML = this.level;
                     console.log("level", this.level)
                     console.log("speed", mushroom.speed)
@@ -85,16 +86,19 @@ class Game{
             console.log("End Game");
             // this.gameScreen.style.animation = "none";
             this.endGame();
-            this.deadSound.play();
+            // this.deadSound.play();
         }
     
     }
 
-    // endGame(){
-    //     this.mario.element.remove();
-    //     this.obstacles.forEach(mushroom => mushroom.element.remove());
-    //     this.gameIsOver = true;
-    //     this.gameContainer.style.display = "none";
-    //     this.gameEndScreen.style.display = "block";
-    // }
+    endGame(){
+        this.mario.element.remove();
+        this.backgroundMusic.pause();
+        this.levelUpSound.pause();
+        this.jumpSound.pause();
+        this.obstacles.forEach(mushroom => mushroom.element.remove());
+        this.gameIsOver = true;
+        this.gameContainer.style.display = "none";
+        this.gameEndScreen.style.display = "block";
+    }
 }

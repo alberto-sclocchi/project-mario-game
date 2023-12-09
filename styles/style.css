@@ -17,8 +17,16 @@
   }
   
   #game-intro img{
-    margin: 100px 0px 100px 0px;
+    margin: 0px 0px 100px 0px;
     width: 400px;
+  }
+
+  #start-button{
+    margin-right: 40px;
+  }
+
+  .instructions{
+    display: none;
   }
 
   #game-container {
@@ -89,6 +97,8 @@
   
   #game-end {
     display: none;
+    height: 100vh;
+    width: 100vw;
     background-color: aqua;
   }
   

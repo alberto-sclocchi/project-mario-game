@@ -1,9 +1,7 @@
 window.onload = function () {
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
-  const instructionButton = document.getElementById("instruction-button");
-  const mainPageButton = document.getElementById("main-page-button");
-
+  const instructionButton = document.getElementById("instuctions-button");
 
   let game;
 
@@ -31,6 +29,20 @@ window.onload = function () {
         "d",
         "ArrowUp"
       ];
+
+      instructionButton.addEventListener("click",()=>{
+        console.log("hi");
+        const parent = document.getElementById("instructions");
+
+        // const instructions = document.createElement("p");
+        // instructions.innerHTML = "Hi there! It's Mario. Make sure to jump over the mushrooms 🍄. If you make me hit it, I will lose a life ❤️. Be careful the mushrooms will go faster and get ready for the adventure."      
+
+        // parent.appendChild(instructions);
+
+        parent.classList.toggle("instructions")
+
+       
+      });
   
       if (possibleKeystrokes.includes(key)) {
         event.preventDefault();

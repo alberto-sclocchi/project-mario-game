@@ -19,6 +19,20 @@ window.onload = function () {
       game.backgroundMusic.play();
     }
 
+    instructionButton.addEventListener("click",()=>{
+      console.log("hi");
+      const parent = document.getElementById("instructions");
+
+      // const instructions = document.createElement("p");
+      // instructions.innerHTML = "Hi there! It's Mario. Make sure to jump over the mushrooms 🍄. If you make me hit it, I will lose a life ❤️. Be careful the mushrooms will go faster and get ready for the adventure."      
+
+      // parent.appendChild(instructions);
+
+      parent.classList.toggle("instructions")
+
+     
+    });
+
     window.addEventListener("keydown", (event)=>{
     const key = event.key;
       const possibleKeystrokes = [
@@ -29,20 +43,6 @@ window.onload = function () {
         "d",
         "ArrowUp"
       ];
-
-      instructionButton.addEventListener("click",()=>{
-        console.log("hi");
-        const parent = document.getElementById("instructions");
-
-        // const instructions = document.createElement("p");
-        // instructions.innerHTML = "Hi there! It's Mario. Make sure to jump over the mushrooms 🍄. If you make me hit it, I will lose a life ❤️. Be careful the mushrooms will go faster and get ready for the adventure."      
-
-        // parent.appendChild(instructions);
-
-        parent.classList.toggle("instructions")
-
-       
-      });
   
       if (possibleKeystrokes.includes(key)) {
         event.preventDefault();

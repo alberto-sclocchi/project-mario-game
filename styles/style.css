@@ -29,6 +29,17 @@
     display: none;
   }
 
+  #instructions{
+    background-color: white;
+    width: 600px;
+    font-size: 20px;
+    padding: 5px 20px;
+    margin:40px;
+    font-weight: 700;
+    border: 4px solid red;
+    line-height: 40px;
+  }
+
   #game-container {
     display: none;
     width: 100vw;

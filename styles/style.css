@@ -110,6 +110,7 @@
     display: none;
     height: 100%;
     width: 100vw;
+    padding-bottom: 40px;
     background-color: aqua;
   }
   
@@ -161,4 +162,8 @@
     color: #5D94FB;
     font-size: 30px;
     font-weight: 900;
+  }
+
+  #restart-button{
+    margin: 20px 40px 0px 30px;
   }

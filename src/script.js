@@ -1,7 +1,8 @@
 window.onload = function () {
   const startButton = document.getElementById("start-button");
   const restartButton = document.getElementById("restart-button");
-  const instructionButton = document.getElementById("instuctions-button");
+  const instructionButton = document.getElementById("instructions-button");
+  const mainPage = document.getElementById("main-page-button");
 
   let game;
 
@@ -9,8 +10,12 @@ window.onload = function () {
       startGame();
     });
     
-    restartButton.addEventListener("click", ()=>{
+    mainPage.addEventListener("click", ()=>{
       location.reload();
+    });
+
+    restartButton.addEventListener("click", ()=>{
+      startGame();
     });
     
     function startGame(){
@@ -20,21 +25,12 @@ window.onload = function () {
     }
 
     instructionButton.addEventListener("click",()=>{
-      console.log("hi");
       const parent = document.getElementById("instructions");
-
-      // const instructions = document.createElement("p");
-      // instructions.innerHTML = "Hi there! It's Mario. Make sure to jump over the mushrooms 🍄. If you make me hit it, I will lose a life ❤️. Be careful the mushrooms will go faster and get ready for the adventure."      
-
-      // parent.appendChild(instructions);
-
       parent.classList.toggle("instructions")
-
-     
     });
 
     window.addEventListener("keydown", (event)=>{
-    const key = event.key;
+      const key = event.key;
       const possibleKeystrokes = [
         "ArrowLeft",
         "ArrowRight",

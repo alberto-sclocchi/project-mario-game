@@ -13,7 +13,7 @@ class Mushroom {
         this.element.style.position = "absolute";
         this.element.style.width = `${this.width}px`;
         this.element.style.height = `${this.height}px`;
-        this.element.style.right = `${this.rigth}px`;
+        this.element.style.right = `${this.right}px`;
         this.element.style.bottom = `${this.bottom}px`;
 
         this.gameScreen.appendChild(this.element);

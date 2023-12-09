@@ -100,6 +100,7 @@ class Game{
         this.isGameOver = true;
         this.gameContainer.style.display = "none";
         this.gameEndScreen.style.display = "block";
+        [...this.redHearts].forEach(heart => heart.style.display = "block");
 
         console.log(this.score);
         console.log(this.level);

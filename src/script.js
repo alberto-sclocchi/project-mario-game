@@ -46,7 +46,9 @@ window.onload = function () {
           case " ":
           case "ArrowUp":
             game.mario.jump();
-            game.jumpSound.play();
+            if (!game.isGameOver){
+              game.jumpSound.play();
+            }
             break;
           case "ArrowLeft":
           case "a":

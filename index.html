@@ -16,6 +16,11 @@
         <div class="instructions" id="instructions">
             <p> Hi there! It's Mario. Make sure to jump over the mushrooms 🍄. If I hit one, I will lose a life ❤️. Be careful, the mushrooms will go faster. Get ready for the adventure! </p>
         </div>
+        <div id="player-name" class="player-name">
+            <label for="player"></label>
+            <input type="text" id="player" placeholder=" Insert username (e.g. albe05)">
+            <button id="begin-button">Begin</button>
+        </div>
     </div>
   
     <div id="game-container">
@@ -25,6 +30,7 @@
                 <img src="./images/heart.png" alt="red-heart" class="heart" id="heart2">
                 <img src="./images/heart.png" alt="red-heart" class="heart" id="heart3">
             </p>
+            <p id="username-par" class="stats-par"></p>
             <p id="score-par" class="stats-par">
                 <span>Score</span>
                 <span id="score">0</span>

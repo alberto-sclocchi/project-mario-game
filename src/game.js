@@ -61,7 +61,7 @@ class Game{
                 this.obstacles.splice(i,1);
                 this.hearts--;
                 console.log("hit");
-                [...this.redHearts][this.hearts].style.display = "none";
+                [...this.redHearts][this.hearts].style.visibility = "hidden";
                 i--;
             } else if (mushroom.right > this.width){
                 this.score++;
@@ -100,7 +100,7 @@ class Game{
         this.isGameOver = true;
         this.gameContainer.style.display = "none";
         this.gameEndScreen.style.display = "block";
-        [...this.redHearts].forEach(heart => heart.style.display = "block");
+        [...this.redHearts].forEach(heart => heart.style.visibility = "visible");
 
         console.log(this.score);
         console.log(this.level);

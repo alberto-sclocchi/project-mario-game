@@ -40,73 +40,75 @@ window.onload = function () {
     restartButton.addEventListener("click", ()=>{
       startGame();
     });
-    
-    function startGame(){
-      game = new Game();
-      game.start();
-      game.backgroundMusic.play();
-    }
 
     instructionButton.addEventListener("click",()=>{
       const parent = document.getElementById("instructions");
       parent.classList.toggle("instructions")
     });
+    
+    function startGame(){
+      game = new Game();
+      game.start();
+      game.backgroundMusic.play();
 
-    window.addEventListener("keydown", (event)=>{
-      const key = event.key;
-      const possibleKeystrokes = [
-        "ArrowLeft",
-        "ArrowRight",
-        " ",
-        "a",
-        "d",
-        "ArrowUp"
-      ];
-  
-      if (possibleKeystrokes.includes(key)) {
-        event.preventDefault();
-        switch(key){
-          case " ":
-          case "ArrowUp":
-            game.mario.jump();
-            if (!game.isGameOver){
-              game.jumpSound.play();
-            }
-            break;
-          case "ArrowLeft":
-          case "a":
-            game.mario.directionX = -2;
-            game.mario.element.classList.add("flipped");
-            break;
-          case "ArrowRight":
-          case "d":
-            game.mario.directionX = 2;
-            game.mario.element.classList.remove("flipped");
-            break;
-        }
-      }
-    });
-
-    window.addEventListener("keyup", (event)=>{
-      const key = event.key;
+      window.addEventListener("keydown", (event)=>{
+        const key = event.key;
         const possibleKeystrokes = [
           "ArrowLeft",
           "ArrowRight",
           " ",
           "a",
-          "d"
+          "d",
+          "ArrowUp"
         ];
     
         if (possibleKeystrokes.includes(key)) {
           event.preventDefault();
-          switch(event.key){
-            case "ArrowLeft" || "a":
-              game.mario.directionX = 0;
+          switch(key){
+            case " ":
+            case "ArrowUp":
+              game.mario.jump();
+              if (!game.isGameOver){
+                game.jumpSound.play();
+              }
               break;
-            case "ArrowRight" || "d":
-              game.mario.directionX = 0;
+            case "ArrowLeft":
+            case "a":
+              game.mario.directionX = -2;
+              game.mario.element.classList.add("flipped");
+              break;
+            case "ArrowRight":
+            case "d":
+              game.mario.directionX = 2;
+              game.mario.element.classList.remove("flipped");
               break;
           }
         }
-    });
+      });
+  
+      window.addEventListener("keyup", (event)=>{
+        const key = event.key;
+          const possibleKeystrokes = [
+            "ArrowLeft",
+            "ArrowRight",
+            " ",
+            "a",
+            "d"
+          ];
+      
+          if (possibleKeystrokes.includes(key)) {
+            event.preventDefault();
+            switch(event.key){
+              case "ArrowLeft":
+              case "a":
+                game.mario.directionX = 0;
+                break;
+              case "ArrowRight":
+              case "d":
+                game.mario.directionX = 0;
+                break;
+            }
+          }
+      });
+    }
 }

@@ -107,5 +107,7 @@ class Game{
 
         document.querySelector("#final-score").innerHTML = this.score;
         document.querySelector("#final-level").innerHTML = this.level;
+        document.querySelector("#level").innerHTML = 0;
+        document.querySelector("#score").innerHTML = 0;
     }
 }
